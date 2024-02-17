@@ -55,5 +55,8 @@ def test_user_delete():
 
     global userID
     api_data = {"userID": str(userID), "username": generated_username, "password": generated_password_new}
-    api_reponse = put(f"{scheme}://{server_address}:{server_port}/api/user/delete", data=json.dumps(api_data))
+    api_reponse = delete(f"{scheme}://{server_address}:{server_port}/api/user/delete", data=json.dumps(api_data))
     assert api_reponse.json()["User delete"] is True, api_reponse.content
+
+def test_recipe_by_name():
+
